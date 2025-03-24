@@ -1,16 +1,25 @@
 # main.py
-from fastapi import FastAPI
+from fastapi import FastAPI, Request
 from typing import Optional
 from DataModel import DataModel
 from PredictionModel import Model
 import pandas as pd
-import joblib
+from fastapi.responses import HTMLResponse
+from fastapi.staticfiles import StaticFiles
+from fastapi.templating import Jinja2Templates
+
 
 app = FastAPI()
 
-@app.get("/")
-def read_root():
-    return {"Hello": "World"}
+# Servir archivos estáticos como CSS desde /static
+app.mount("/static", StaticFiles(directory="static"), name="static")
+
+# Carpeta para los HTMLs
+templates = Jinja2Templates(directory="templates")
+
+@app.get("/", response_class=HTMLResponse)
+async def serve_classify(request: Request):
+    return templates.TemplateResponse("classify.html", {"request": request})
 
 
 @app.get("/items/{item_id}")

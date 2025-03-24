@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Fake News Model</title>
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="sidebar">
+    <h1>Fake News</h1>
+    <nav>
+      <a href="#">🔗 Endpoint 1</a>
+      <a href="#">🔄 Endpoint 2</a>
+    </nav>
+  </div>
+
+  <div class="main">
+    <!-- Fila superior: Upload + Imagen -->
+  <div class="top-row">
+    <div class="card upload-section">
+      <div class="upload-content">
+        <div class="form-section">
+          <h2>Sube tu archivo!</h2>
+          <p>El archivo debe ser un <a href="#">CSV</a> que contenga los <strong>textos que requieras clasificar</strong>.</p>
+          <input type="file" />
+          <button>Subir archivo</button>
+        </div>
+        <div class="image-section">
+          <img src="/static/fake-news-icon.png" alt="Ilustración" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <!-- Fila inferior: tabla + estadísticas -->
+    <div class="bottom-row">
+      <div class="card table-section">
+        <h2>Textos clasificados</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Texto</th>
+              <th>Predicción</th>
+              <th>Probabilidades</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td colspan="4">No hay datos aún</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card stats">
+        <h2>Estadísticas</h2>
+        <div class="legend">
+          <span class="class3">Noticia verdadera</span>
+          <span class="class4">Fake new</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
